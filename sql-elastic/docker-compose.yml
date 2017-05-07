@@ -1,0 +1,7 @@
+version: '3'
+services:
+  mysql:
+    image: "mysql"
+    container_name: "mysql-source"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes' 
