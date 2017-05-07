@@ -4,4 +4,19 @@ services:
     image: "mysql"
     container_name: "mysql-source"
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes' 
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    networks:
+      - play
+  elasticsearch:
+    image: "docker.elastic.co/elasticsearch/elasticsearch:5.4.0"
+    container_name: "elastic-target"
+    environment:
+      http.host: "0.0.0.0"
+      transport.host: "127.0.0.1"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - play
+networks:
+  play: 
